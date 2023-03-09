@@ -1,23 +1,5 @@
 import os
 
-# 菜单
-
-
-def display():
-    list = ("查看可升级包", "安装pip包", "卸载pip包",
-            "查看当前pip源", "设置pip源", "安装计算机二级考试包",
-            "导出已经安装的pip包", "从文件中安装pip包", "帮助")
-    for i in range(len(list)):
-        print("{}.{}".format(i+1, list[i]))
-    print("0.退出")
-    try:
-        choose = input("请选择：")
-        return choose
-    except:
-        print("已退出")
-        return 0
-
-
 # 查看可升级包
 
 
@@ -183,26 +165,41 @@ def pip_help():
 
 def func(choose):
     match choose:
-        case '1':
+        case 1:
             outdate_package()
-        case '2':
+        case 2:
             install_package()
-        case '3':
+        case 3:
             uninstall_package()
-        case '4':
+        case 4:
             view_mirror()
-        case '5':
+        case 5:
             set_mirror()
-        case '6':
+        case 6:
             NCRE_package()
-        case '7':
+        case 7:
             export_package()
-        case '8':
+        case 8:
             import_package()
-        case '9':
+        case 9:
             pip_help()
 
-# 主函数
+# 菜单
+
+
+def display():
+    list = ("查看可升级包", "安装pip包", "卸载pip包",
+            "查看当前pip源", "设置pip源", "安装计算机二级考试包",
+            "导出已经安装的pip包", "从文件中安装pip包", "帮助")
+    for i in range(len(list)):
+        print("{}.{}".format(i+1, list[i]))
+    print("0.退出")
+    try:
+        choose = int(input("请选择："))
+        return choose
+    except:
+        print("已退出")
+        return 0
 
 
 def main():
