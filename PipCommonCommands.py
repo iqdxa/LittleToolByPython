@@ -23,12 +23,12 @@ def display():
 
 def outdate_package():
     pack = 0
-    os.system("pip list --outdated")
+    os.system("pip3 list --outdated")
     while pack != '':
         pack = input("请输入要升级的包名称（多个包之间使用空格隔开，留空退出）（输入0升级所有）")
         if pack == "pip":
             try:
-                os.system("pip install pip -U")
+                os.system("pip3 install pip -U")
             except:
                 print("升级失败")
             else:
@@ -36,11 +36,11 @@ def outdate_package():
         elif pack == "0":
             # 安装pip-review
             os.system("pip3 install pip-review")
-            # 使用pip-review
+            # 使用pip-review升级所有的pip包
             os.system("pip-review --local --interactive")
         elif pack:
             try:
-                os.system("pip install --upgrade "+pack)
+                os.system("pip3 install --upgrade "+pack)
             except:
                 print("升级失败，请重试")
             else:
@@ -52,7 +52,7 @@ def outdate_package():
 def install_package():
     pack = input("请输入要安装的包名称：")
     try:
-        os.system("pip install "+pack)
+        os.system("pip3 install "+pack)
     except:
         print("安装失败")
     else:
@@ -64,7 +64,7 @@ def install_package():
 def uninstall_package():
     pack = input("请输入要卸载的包名称：")
     try:
-        os.system("pip uninstall "+pack)
+        os.system("pip3 uninstall "+pack)
     except:
         print("卸载失败")
     else:
