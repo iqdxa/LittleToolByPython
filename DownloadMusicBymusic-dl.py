@@ -1,5 +1,30 @@
 import os
 
+list = ("1.Download music by music`s name.",
+        "2.Download music by music`s url.",
+        "3.Download music by playlist`s url.",
+        "4.Help")
+for i in range(len(list)):
+    print("{}.{}".format(i+1, list[i]))
+print("0.退出")
+
+choose = int(input("Please input a number:"))
+
+match choose:
+    case 1: os.system("music-dl --number 10 --outdir C:\\Users\\TFC\\Music")
+    case 2:
+        music_url = input("Please input a music`s url:")
+        os.system("music-dl --outdir C:\\Users\\TFC\\Music --url "+music_url)
+    case 3:
+        play_list_url = input("Please input a playlist`s url:")
+        os.system(
+            "music-dl --outdir C:\\Users\\TFC\\Music --playlist "+play_list_url)
+    case 4:
+        os.system("music-dl --help")
+    case 0:
+        exit()
+
+
 # Usage: music-dl[OPTIONS]
 # Search and download music from netease, qq, kugou, baidu and xiami. Example:
 #   music-dl - k "周杰伦"
@@ -17,22 +42,3 @@ import os
 #   --cover               同时下载封面
 #   --nomerge             不对搜索结果列表排序和去重
 #   --help                Show this message and exit.
-
-print("1.Download music by music`s name.")
-print("2.Download music by music`s url.")
-print("3.Download music by playlist`s url.")
-print("4.Help")
-print("0.Exit")
-choose = int(input("Please input a number:"))
-match choose:
-    case 1: os.system("music-dl --number 10")
-    case 2:
-        music_url = input("Please input a music`s url:")
-        os.system("music-dl --url "+music_url)
-    case 3:
-        play_list_url = input("Please input a playlist`s url:")
-        os.system("music-dl --playlist "+play_list_url)
-    case 4:
-        os.system("music-dl --help")
-    case 0:
-        exit()
